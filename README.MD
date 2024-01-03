@@ -2,12 +2,12 @@
 ### Visualization of DFS/BFS using openframworks
 ---
 **Execution Environment**
-> openframeworks based on window10 visual studio, 4K resolution 
+> openframeworks based on window10 visual studio, 4K resolution
 
-**How to use**
+**How to Use**
 >Import a maze : File -> Open -> Select a file with .maz extension
 
->Create a maze : File -> Generate -> Enter the w,h of the maze to be created and a filename to save (20 characters or less)
+>Create a maze : File -> Generate 
 
 >DFS : View -> Show DFS 
 
