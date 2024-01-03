@@ -1,6 +1,6 @@
 # CSE3013_Project
 ### Visualization of DFS/BFS using openframworks
- 
+---
 **Execution Environment**
 > openframeworks based on window10 visual studio, 4K resolution 
 
