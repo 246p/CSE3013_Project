@@ -115,7 +115,7 @@ void ofApp::setup() {
 
 	// Set the menu to the window
 	menu->SetWindowMenu();
-	// ·£´ýÇÔ¼ö¸¦ ÁöÁ¤ÇÏ±â À§ÇØ¼­  ½Ã°£À» º¯¼ö·Î ³­¼öÇ¥¸¦ ÃÊ±âÈ­ÇØÁØ´Ù.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½  ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½Ê±ï¿½È­ï¿½ï¿½ï¿½Ø´ï¿½.
 	srand((unsigned)time(NULL)); 
 } // end Setup
 
@@ -150,11 +150,11 @@ void ofApp::appMenuFunction(string title, bool bChecked) {
 	//
 	if (title == "Show DFS") {
 		bShowInfo = bChecked;  // Flag is used elsewhere in Draw()
-		if (isOpen)//DFS ¸¦ ½Ç½ÃÇÑ´Ù. 
+		if (isOpen)//DFS ï¿½ï¿½ ï¿½Ç½ï¿½ï¿½Ñ´ï¿½. 
 		{
 			isbfs = false;
 			dfs_draw_finish = false;
-			init(); // ±âÁ¸¿¡ ÇÁ·Î±×·¥À» ½ÇÇàÇÑ °á°úµéÀ» ÃÊ±âÈ­½ÃÄÑÁØ´Ù.
+			init(); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.
 			DFS(1, 1);
 			bShowInfo = true;
 			isdfs = true;
@@ -165,7 +165,7 @@ void ofApp::appMenuFunction(string title, bool bChecked) {
 
 	if (title == "Show BFS") {
 		//doTopmost(bChecked); // Use the checked value directly
-		if (isOpen)//BFS ¸¦ ½ÇÇàÇÑ´Ù. 
+		if (isOpen)//BFS ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. 
 		{
 			isdfs = false;
 			init();
@@ -196,14 +196,14 @@ void ofApp::appMenuFunction(string title, bool bChecked) {
 //--------------------------------------------------------------
 void ofApp::update() {
 	if (isdfs && !dfs_draw_finish) { 
-		dfs_print_idx++; // DFS ÀÇ °æ·Î¸¦ ÇÑ´Ü°è¾¿ ´õ ±×·ÁÁØ´Ù.
+		dfs_print_idx++; // DFS ï¿½ï¿½ ï¿½ï¿½Î¸ï¿½ ï¿½Ñ´Ü°è¾¿ ï¿½ï¿½ ï¿½×·ï¿½ï¿½Ø´ï¿½.
 	}
-	if (isbfs && !bfs_draw_finish)  //BFSÀÇ ´Ü°è´Â DFS¿Í´Â ´Ù¸£°Ô updateÇÔ¼ö¸¦ ÅëÇØ ÁøÇàÇÑ´Ù.
+	if (isbfs && !bfs_draw_finish)  //BFSï¿½ï¿½ ï¿½Ü°ï¿½ï¿½ DFSï¿½Í´ï¿½ ï¿½Ù¸ï¿½ï¿½ï¿½ updateï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 		if (!q_bfs.empty()) {
 			pair<int, int> curr = q_bfs.front(); q_bfs.pop();
 			int x = curr.first, y = curr.second;
 			if (x == WIDTH - 2 && y == HEIGHT - 2) {
-				while (!q_bfs.empty()) q_bfs.pop(); //BFS°¡ Á¾·áµÈ´Ù¸é queue¿¡ ÀÖ´Â ¸ðµç ¿ø¼Ò¸¦ »©ÁØ´Ù.
+				while (!q_bfs.empty()) q_bfs.pop(); //BFSï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È´Ù¸ï¿½ queueï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò¸ï¿½ ï¿½ï¿½ï¿½Ø´ï¿½.
 				bfs_draw_finish = true;
 			}
 			else 
@@ -227,10 +227,10 @@ void ofApp::draw() {
 	ofSetLineWidth(5);
 	int i, j;
 	// TO DO : DRAW MAZE; 
-	// ÀúÀåµÈ ÀÚ·á±¸Á¶¸¦ ÀÌ¿ëÇØ ¹Ì·Î¸¦ ±×¸°´Ù.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú·á±¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½Ì·Î¸ï¿½ ï¿½×¸ï¿½ï¿½ï¿½.
 	// add code here
-	int w = LINEW, h = LINEH; // ¹Ì·Î¸¦ ±×¸®´Â ¼±ÀÇ ±æÀÌ¿Í µÎ²²¸¦ ÀÇ¹ÌÇÑ´Ù.
-	if (isOpen) { // ¹Ì·ÎÀÇ ±¸Á¶¸¦ ±×·ÁÁØ´Ù.
+	int w = LINEW, h = LINEH; // ï¿½Ì·Î¸ï¿½ ï¿½×¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¿ï¿½ ï¿½Î²ï¿½ï¿½ï¿½ ï¿½Ç¹ï¿½ï¿½Ñ´ï¿½.
+	if (isOpen) { // ï¿½Ì·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×·ï¿½ï¿½Ø´ï¿½.
 		int x = 0, y = 0;
 		for (i = 0; i < HEIGHT; i++) {
 			for (j = 0; j < WIDTH; j++) {
@@ -265,15 +265,15 @@ void ofApp::draw() {
 	if (isbfs) {
 		ofSetColor(200); ofSetLineWidth(5);
 		if (isOpen) {
-			bfsdraw(); // ÇöÀç±îÁö bfs°æ·Î¸¦ ±×·ÁÁØ´Ù.
+			bfsdraw(); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ bfsï¿½ï¿½Î¸ï¿½ ï¿½×·ï¿½ï¿½Ø´ï¿½.
 			if (!bfs_draw_finish) {
-				// ÇöÀç Å½»öÁßÀÎ ±íÀÌ¿¡ ÀÖ´Â ¸ðµç Á¡À» Ç¥ÇÑÇÏ±â À§ÇØ 
-				// Ã¹ ¿ø¼Ò(Áö±Ý ¿òÁ÷ÀÌ´Â ¿ø¼Ò)´Â ÃÊ·Ï»öÀ¸·Î ±×·ÁÁØ´Ù
+				// ï¿½ï¿½ï¿½ï¿½ Å½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¿ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ 
+				// Ã¹ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½ ï¿½Ê·Ï»ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×·ï¿½ï¿½Ø´ï¿½
 				pair<int, int> temp = q_bfs.front(); q_bfs.pop();
 				ofSetColor(0, 255, 0);
 				ofDrawCircle(temp.first * (LINEH + LINEW) / 2 + (LINEW / 2), temp.second * (LINEH + LINEW) / 2 + (LINEW / 2), LINEH / 4);
 				q_bfs.push(temp);
-				//³ª¸ÓÁö ¿ø¼ÒµéÀº ÇÏ³ª¾¿ »©¼­ È¸»öÀ¸·Î ±×·ÁÁÖ°í ´Ù½Ã Å¥¿¡ ³Ö¾îÁØ´Ù.
+				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×·ï¿½ï¿½Ö°ï¿½ ï¿½Ù½ï¿½ Å¥ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½Ø´ï¿½.
 				for (int i = 1;i < q_bfs.size();i++) {
 					temp = q_bfs.front(); q_bfs.pop();
 					ofSetColor(100);
@@ -291,10 +291,10 @@ void ofApp::draw() {
 		ofSetColor(200);
 		ofSetLineWidth(5);
 		if (isOpen) {
-			if (!dfs_draw_finish)  //dfs°¡ ¿Ï·áµÇÁö ¾Ê¾Ò´Ù¸é Áß°£ °úÁ¤ ±îÁö ±×·ÁÁØ´Ù.
+			if (!dfs_draw_finish)  //dfsï¿½ï¿½ ï¿½Ï·ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾Ò´Ù¸ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½×·ï¿½ï¿½Ø´ï¿½.
 				draw_DFS_PATH();
 			else
-				dfsdraw(); // dfs°¡ ¿Ï·áµÇ¾ú´Ù¸é ÀüÃ¼¸¦ ±×·ÁÁØ´Ù.
+				dfsdraw(); // dfsï¿½ï¿½ ï¿½Ï·ï¿½Ç¾ï¿½ï¿½Ù¸ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½×·ï¿½ï¿½Ø´ï¿½.
 		}
 		else
 			cout << "You must open file first" << endl;
@@ -472,7 +472,7 @@ bool ofApp::readFile()
 
 
 			// TO DO
-			// .maz ÆÄÀÏÀ» inputÀ¸·Î ¹Þ¾Æ¼­ ÀûÀýÈ÷ ÀÚ·á±¸Á¶¿¡ ³Ö´Â´Ù
+			// .maz ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ inputï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú·á±¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Â´ï¿½
 			freeMemory();
 			isbfs = isdfs = false;
 			HEIGHT = 0;
@@ -507,7 +507,7 @@ bool ofApp::readFile()
 }
 void ofApp::freeMemory() { 
 	//TO DO
-	// mallocÇÑ memory¸¦ freeÇØÁÖ´Â ÇÔ¼ö
+	// mallocï¿½ï¿½ memoryï¿½ï¿½ freeï¿½ï¿½ï¿½Ö´ï¿½ ï¿½Ô¼ï¿½
 	for (int i = 0;i < HEIGHT;i++) {
 		free(input[i]);
 		free(maze_arr[i]);
@@ -515,9 +515,9 @@ void ofApp::freeMemory() {
 	free(maze_arr);
 	free(input);
 }
-bool ofApp::DFS(int x, int y)//DFSÅ½»öÀ» ÇÏ´Â ÇÔ¼ö
+bool ofApp::DFS(int x, int y)//DFSÅ½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
 {
-	//path º¯¼ö´Â dfs¿¡¼­ ÀÌµ¿ÇÑ Á¡µéÀÇ À§Ä¡¸¦ ÀúÀåÇÏ´Â º¯¼öÀÌ´Ù.
+	//path ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ dfsï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½.
 	path.push_back(make_pair(x, y)); 
 	if (x == WIDTH - 2 && y == HEIGHT - 2) {
 		maze_arr[y][x] = 2;
@@ -539,12 +539,12 @@ bool ofApp::DFS(int x, int y)//DFSÅ½»öÀ» ÇÏ´Â ÇÔ¼ö
 	maze_arr[y][x] = 3;
 	return false;
 }
-void ofApp::draw_DFS_PATH(void) { // path¿¡ ÀúÀåµÈ Á¡À» ±âÁØÀ¸·Î ±×·ÁÁØ´Ù.
+void ofApp::draw_DFS_PATH(void) { // pathï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×·ï¿½ï¿½Ø´ï¿½.
 	if (dfs_print_idx >= path.size() - 1) {
 		dfs_draw_finish = true;
 		return;
 	}
-	for (int i = 0;i < dfs_print_idx;i++) { //pathÀÇ Á¡À» ÀÌ¾î¼­ ±×·ÁÁØ´Ù.
+	for (int i = 0;i < dfs_print_idx;i++) { //pathï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¾î¼­ ï¿½×·ï¿½ï¿½Ø´ï¿½.
 		int x1 = path[i].first;
 		int y1 = path[i].second;
 		int x2 = path[i + 1].first;
@@ -557,7 +557,7 @@ void ofApp::draw_DFS_PATH(void) { // path¿¡ ÀúÀåµÈ Á¡À» ±âÁØÀ¸·Î ±×·ÁÁØ´Ù.
 	ofDrawCircle(path[dfs_print_idx].first * (LINEH + LINEW) / 2 + (LINEW / 2), path[dfs_print_idx].second*(LINEH + LINEW) / 2 + (LINEW / 2), LINEH/4);
 }
 
-void ofApp::dfsdraw() // DFS°¡ ¿Ï·áµÇ¾ú´Ù¸é maze_arrÀÇ Á¤º¸¸¦ ±â¹ÝÀ¸·Î ¼±À» ±×·ÁÁØ´Ù.
+void ofApp::dfsdraw() // DFSï¿½ï¿½ ï¿½Ï·ï¿½Ç¾ï¿½ï¿½Ù¸ï¿½ maze_arrï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½×·ï¿½ï¿½Ø´ï¿½.
 {
 	for (int i = 1;i < HEIGHT;i += 2) {
 		for (int j = 1;j < WIDTH;j += 2) {
@@ -586,7 +586,7 @@ void ofApp::dfsdraw() // DFS°¡ ¿Ï·áµÇ¾ú´Ù¸é maze_arrÀÇ Á¤º¸¸¦ ±â¹ÝÀ¸·Î ¼±À» ±×·Á
 	}
 }
 
-void ofApp::bfsdraw(void) { //dfs°úÁ¤¼Ó ÁøÇàµÈ °÷ ±îÁö ±×·ÁÁØ´Ù.
+void ofApp::bfsdraw(void) { //dfsï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½×·ï¿½ï¿½Ø´ï¿½.
 	for (int i = 1;i < HEIGHT;i += 2) {
 		for (int j = 1;j < WIDTH;j += 2) {
 			for (int k = 0;k < 4;k++) {
@@ -619,13 +619,13 @@ void ofApp::bfsdraw(void) { //dfs°úÁ¤¼Ó ÁøÇàµÈ °÷ ±îÁö ±×·ÁÁØ´Ù.
 	}
 }
 void ofApp::gen_maze(void) { 
-	// maze¸¦ »ý¼ºÇØÁØ´Ù. ½Ç½À ½Ã°£°ú´Â ´Ù¸£°Ô ¹éÆ®·¡Å·À» ÅëÇÏ¿© ±¸ÇöÇÏ¿´´Ù.
-	// ¸¸¾à ÀÌ¹Ì ÆÄÀÏÀÌ ¿­·ÁÀÖ´Ù¸é ¸Þ¸ð¸®¸¦ ÃÊ±âÈ­ÇØÁØ´Ù.
+	// mazeï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½. ï¿½Ç½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½Å·ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½.
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö´Ù¸ï¿½ ï¿½Þ¸ð¸®¸ï¿½ ï¿½Ê±ï¿½È­ï¿½ï¿½ï¿½Ø´ï¿½.
 	if (isOpen) freeMemory();
 	isbfs = isdfs = isOpen = false;
-	int w, h;//w,h´Â ¹æÀÇ ¼ö
+	int w, h;//w,hï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 	printf("input W,H : "); scanf("%d %d", &w, &h);
-	//ÀÔ·Â¹ÞÀº Å©±â¿¡ ¸Â°Ô µ¿Àû ÇÒ´ç ÇØÁØ´Ù.
+	//ï¿½Ô·Â¹ï¿½ï¿½ï¿½ Å©ï¿½â¿¡ ï¿½Â°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò´ï¿½ ï¿½ï¿½ï¿½Ø´ï¿½.
 	WIDTH = 2 * w + 1; HEIGHT = 2 * h + 1;
 	new_maze = (int**)malloc(sizeof(int*) * (2 * h + 1));
 	for (int i = 0;i < (2 * h + 1);i++)
@@ -633,19 +633,19 @@ void ofApp::gen_maze(void) {
 	for (int i = 0;i < 2 * h + 1;i++)
 		for (int j = 0;j < 2 * w + 1;j++)
 			new_maze[i][j] = 1;
-	//½ÃÀÛÀ§Ä¡ÀÇ ÁÂÇ¥¸¦ ·£´ýÇÔ¼ö¸¦ ÅëÇØ ÁöÁ¤ÇØÁØ´Ù.
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.
 	int sx = (rand() % w) * 2 + 1; int sy = (rand() % h) * 2 + 1;
 	new_maze[sy][sx] = 0;
-	g_maze(sx, sy); // g_maze¶ó´Â ÇÔ¼ö¸¦ ÅëÇØ ¹éÆ®·¡Å·À» ÀÌ¿ëÇÑ ¹Ì·Î »ý¼ºÀ» ½Ç½ÃÇÑ´Ù.
+	g_maze(sx, sy); // g_mazeï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½Å·ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½Ì·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç½ï¿½ï¿½Ñ´ï¿½.
 
-	//¸¸µç °ªÀ» ÀúÀåÇÏ±âÀ§ÇØ¼­ input °ú maze_arr ¹è¿­¿¡ µ¿ÀûÇÒ´ç ÇØÁØ´Ù.
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ input ï¿½ï¿½ maze_arr ï¿½è¿­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò´ï¿½ ï¿½ï¿½ï¿½Ø´ï¿½.
 	input = (char**)malloc(sizeof(char*) * HEIGHT);
 	maze_arr = (int**)malloc(sizeof(int*) * (HEIGHT));
 	for (int i = 0;i < HEIGHT;i++) {
 		input[i] = (char*)malloc(sizeof(char) * WIDTH);
 		maze_arr[i] = (int*)malloc(sizeof(int) * (WIDTH));
 	}
-	// »ý¼ºÇÑ ¹Ì·Î¸¦ inputÆÄÀÏ¿¡ º¹»çÇÑ´Ù.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì·Î¸ï¿½ inputï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	for (int i = 0;i < HEIGHT;i++) {
 		for (int j = 0;j < WIDTH;j++) {
 			if (i % 2 == 0) {
@@ -670,14 +670,14 @@ void ofApp::gen_maze(void) {
 	init();
 	isOpen = 1;
 
-	//ÆÄÀÏÀ» ÀúÀåÇÑ´Ù.
-	//ofFileÀ» »ç¿ëÇÑ´ô¸é ±âº» ÀÎÄÚµùÀÌ UTF-16À¸·Î µÇ±â¿¡ C¾ð¾îÀÇ FILE À» »ç¿ëÇÑ´Ù.
-	char temp[20]; // ÀÔ·Â¹Þ´Â ¸ÞÀÌÁî ÆÄÀÏÀÇ ÀÌ¸§
-	char filename[30] = { "data/" }; // Æú´õÀÇ »ó´ë°æ·Î¸¦ ÅëÇÏ¿© ÀúÀåÀ§Ä¡¸¦ ÁöÁ¤ÇØÁØ´Ù.
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	//ofFileï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½ï¿½ï¿½ ï¿½âº» ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ UTF-16ï¿½ï¿½ï¿½ï¿½ ï¿½Ç±â¿¡ Cï¿½ï¿½ï¿½ï¿½ï¿½ FILE ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	char temp[20]; // ï¿½Ô·Â¹Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
+	char filename[30] = { "data/" }; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.
 	printf("FILE NAME : ");
 	scanf("%s", temp);
 	strcat(filename, temp);
-	strcat(filename, ".maz"); // È®ÀåÀÚ´Â ÀÚµ¿À¸·Î .maz·Î ¸ÂÃß¾îÁØ´Ù.
+	strcat(filename, ".maz"); // È®ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ .mazï¿½ï¿½ ï¿½ï¿½ï¿½ß¾ï¿½ï¿½Ø´ï¿½.
 	FILE* fp = fopen(filename, "w");
 	for (int i = 0;i < HEIGHT;i++) {
 		for (int j = 0;j < WIDTH;j++)
@@ -685,26 +685,26 @@ void ofApp::gen_maze(void) {
 		fprintf(fp, "\n");
 	}
 	fclose(fp);
-	// new_maze ´Â »ç¿ëÀÌ ¿Ï·áµÇ¾úÀ¸¹Ç·Î ¸Þ¸ð¸® ÇÒ´çÀ» ÇØÁ¦ÇØÁØ´Ù.
+	// new_maze ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ ï¿½Þ¸ï¿½ ï¿½Ò´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.
 	for (int i = 0;i < 2 * h + 1;i++)
 		free(new_maze[i]);
 	free(new_maze);
 }
 
 void ofApp::g_maze(int x, int y) {
-	int d = rand() % 4; //·£´ýÇÑ ¹æÇâÀ» ÁöÁ¤ÇØÁÖ°í ±× ¹æÇâÀÇ º®À» Çã¹°¾îÁØ´Ù.
+	int d = rand() % 4; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö°ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ã¹°ï¿½ï¿½ï¿½Ø´ï¿½.
 	for (int i = 0;i < 4;i++) {
 		int tx = x + dx[(i + d) % 4] * 2;
 		int ty = y + dy[(i + d) % 4] * 2;
 		if (tx > 0 && tx < WIDTH && ty>0 && ty < HEIGHT && new_maze[ty][tx] == 1) {
 			new_maze[ty][tx] = 0;
 			new_maze[y + dy[(i + d) % 4]][x + dx[(i + d) % 4]] = 0;
-			g_maze(tx, ty); // Àç±ÍÀûÀ¸·Î ÀÌ¸¦ ¹Ýº¹ÇÑ´Ù.
+			g_maze(tx, ty); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½Ýºï¿½ï¿½Ñ´ï¿½.
 		}
 	}
 }
 
-void ofApp::init(void) { // ±âÁ¸ µ¥ÀÌÅÍ °ªÀ» Áö¿öÁÖ´Â ¿ªÇÒÀ» ÇÑ´Ù.
+void ofApp::init(void) { // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
 	for (int i = 0; i < HEIGHT; i++) {
 		for (int j = 0; j < WIDTH; j++) {
 			if (input[i][j] != ' ')
